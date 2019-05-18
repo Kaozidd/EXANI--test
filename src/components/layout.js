@@ -35,12 +35,16 @@ const Layout = ({ children }) => (
           }}
         >
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
         </div>
+        <footer style={{
+          background: `rebeccapurple`,
+          marginTop: `1.45rem`,
+          padding: '30px'
+        }}>
+        © {new Date().getFullYear()}, Built by Arturo Ortega, software developer at PsyCode with
+        {` `}
+        <a style={{color:'#BBB',textDecoration:'none'}}href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
       </>
     )}
   />

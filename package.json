@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "Simulacro de examen de Admisión",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
@@ -16,7 +16,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-slick": "^0.24.0"
   },
   "devDependencies": {
     "prettier": "^1.17.1"

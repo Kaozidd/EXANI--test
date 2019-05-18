@@ -615,6 +615,115 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+.quiz,
+.choices {
+  list-style-type: none;
+  padding: 0;
+}
+
+.choices li {
+  margin-bottom: 5px;
+}
+
+.choices label {
+  display: flex;
+  align-items: center;
+}
+
+.choices label,
+input[type="radio"] {
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+.view-results,
+.reset-test {
+  padding: 1rem;
+  cursor: pointer;
+  font-size: inherit;
+  color: white;
+  background: teal;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+.my-results {
+  padding: 1rem;
+  border: 1px solid goldenrod;
+}
+
+.hidden {
+  display: none;
+  /* background-color: red; */
+}
+
+.subsection {
+  padding-right: 10px;
+}
+
+.image {
+  max-height: 50vh;
+  width: auto;
+}
+
+/***SLIDER***/
+.slider {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slider-wrapper {
+  position: relative;
+  margin-right: 0 400px;
+  width: 100%;
+}
+
+.slide {
+  display: inline-block;
+  width: 600px;
+}
+
+.arrow {
+  height: 50px;
+  width: auto;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DEDEEF;
+  border: 1px solid rgba(0,0,0,0.4);
+  border-radius: 5%;
+  cursor: pointer;
+  transition: transform ease-in .1s;
+}
+
+.nextArrow {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  z-index: 999;
+}
+
+.backArrow {
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
+  z-index: 999;
+}
+
+.fa-arrow-right:before, .fa-arrow-left:before {
+  color: #222
+}
+/***SLIDER***/
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
