@@ -1,15 +1,32 @@
 import React from 'react'
 
-const Question = ({ data, iter }) => (
-  <li style={{
+import Element from './element'
+
+const Question = ({ data, iter, number }) => (
+  <li className='quest-item' style={{
     marginBottom: '100px',
     paddingTop: '30px',
     borderTop: '2px solid rgba(0,0,0,0.8)'
   }}>
-    <h4><span>{iter+1}. </span>{data.question}</h4>
+    <h4><span>{number}. </span>{data.question}</h4>
     {
       data.img ?
         <img src={data.img} className='image' alt={`slide${iter}`}/>
+      : null
+    }
+    {
+      data.element ?
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-around'
+        }}>
+          {data.element.map((d, i) => {
+            return (
+              <Element elem={d} name={0} />
+            )
+          })}
+        </div>
       : null
     }
     {
@@ -56,7 +73,6 @@ const Question = ({ data, iter }) => (
             </label>
           </li>
         )
-
       })}
     </ul>
   </li>

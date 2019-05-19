@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Quiz from "../components/quiz"
@@ -13,7 +14,8 @@ class IndexPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      score: 0
+      score: 0,
+      errors: []
     }
   }
 
@@ -26,24 +28,30 @@ class IndexPage extends React.Component {
 
   getScore = () => {
     var score = 0
+    var errors = []
     for (var i = 0; i < tot; i++)
     if (this.getCheckedValue(`question${i}`) === questions[i].answer) {
       score += 1
+    } else {
+      errors.push(questions[i])
     }
-    this.setState({score: score})
+    this.setState({score: score, errors: errors})
   }
 
   returnScore = () => {
-    var res = document.querySelector("#myresults")
+    var res = document.querySelector("#myresults"),
+        rst = document.querySelector('.reset-test'),
+        answ = document.querySelector('.see-answers')
     res.classList.remove('hidden')
-    var rst = document.querySelector('.reset-test')
     rst.classList.remove('hidden')
+    answ.classList.remove('hidden')
     this.getScore()
   }
 
   resetTest = () => {
     var res = document.querySelector("#myresults"),
-        rst = document.querySelector(".reset-test")
+        rst = document.querySelector(".reset-test"),
+        answ = document.querySelector('.see-answers')
     var radios = document.querySelectorAll('input')
     for (let i=0; i<radios.length; i++) {
       radios[i].checked = false
@@ -53,6 +61,7 @@ class IndexPage extends React.Component {
     })
     res.classList.add('hidden')
     rst.classList.add('hidden')
+    answ.classList.add('hidden')
     document.documentElement.scrollTop = 0
   }
 
@@ -63,14 +72,24 @@ class IndexPage extends React.Component {
         <Quiz>
           {questions.map((d, i) => {
             return (
-              <Question data={d} iter={i} />
+              <Question data={d} number={d.number} iter={i} />
             )
           })}
         </Quiz>
-        <div>
+        <div className='btns-container'>
           <button className="view-results" onClick={this.returnScore}>Calcular resultados</button>
           <button className="reset-test hidden" onClick={this.resetTest}>Intentar de nuevo</button>
-          <span id='myresults' className="my-results hidden">{`Puntuación: ${this.state.score} de ${tot}`}</span>
+          <span id='myresults' className="my-results hidden">{`Puntuación: ${this.state.score} de ${tot}, para una calificación de ${((parseInt(this.state.score)*10)/tot).toFixed(2)}`}</span>
+          <Link
+          to='/answers'
+          state={{ data: this.state.errors}}
+          className="see-answers hidden"
+          style={{
+            textDecoration: 'none',
+            textAlign: 'center'
+          }}>
+            <span>Ver respuestas</span>
+          </Link>
         </div>
       </Layout>
     )
