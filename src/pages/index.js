@@ -72,7 +72,7 @@ class IndexPage extends React.Component {
         <Quiz>
           {questions.map((d, i) => {
             return (
-              <Question data={d} number={d.number} iter={i} />
+              <Question data={d} number={d.number} iter={i} answ={null} />
             )
           })}
         </Quiz>

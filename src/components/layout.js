@@ -41,7 +41,7 @@ const Layout = ({ children }) => (
           marginTop: `1.45rem`,
           padding: '30px'
         }}>
-        © {new Date().getFullYear()}, Built by Arturo Ortega, software developer at PsyCode with
+        © {new Date().getFullYear()}, Built by Arturo Ortega, software developer at <a style={{color:'#BBB',textDecoration:'none'}}href="https://psycode.surge.sh">PsyCode</a>&trade; with
         {` `}
         <a style={{color:'#BBB',textDecoration:'none'}}href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>

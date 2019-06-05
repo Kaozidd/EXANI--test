@@ -2,9 +2,9 @@ import React from 'react'
 
 import Element from './element'
 
-const Question = ({ data, iter, number }) => (
+const Question = ({ data, iter, number, answ }) => (
   <li className='quest-item' style={{
-    marginBottom: '100px',
+    marginBottom: '50px',
     paddingTop: '30px',
     borderTop: '2px solid rgba(0,0,0,0.8)'
   }}>
@@ -53,7 +53,7 @@ const Question = ({ data, iter, number }) => (
         </table>
       : null
     }
-    <ul className="choices" style={{
+    <ul className={`choices ${answ}`} style={{
       marginTop: '60px'
     }}>
       {data.options.map((d, i) => {
